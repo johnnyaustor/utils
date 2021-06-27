@@ -49,7 +49,7 @@ public class FileHandler {
         BufferedWriter bw = new BufferedWriter(fileWriter);
         String write = content;
         if (withWatermark) {
-            String watermark = "/** Generate by Johnny Austor Builder at " + new Date().toString() + " */\n";
+            String watermark = "/* Generate by Johnny Austor Builder at " + new Date().toString() + " */\n";
             write = watermark.concat(content);
         }
         bw.write(write);

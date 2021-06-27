@@ -13,3 +13,21 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
+
+apply plugin: 'maven-publish'
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.jap'
+            artifactId = 'utils'
+            version = "1.0"
+            from components.java
+
+            pom {
+                name = 'Utils'
+                description = 'Utils For Generator'
+            }
+        }
+    }
+}
