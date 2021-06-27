@@ -1,5 +1,6 @@
 plugins {
-    id 'java'
+    id 'java-library'
+    id 'maven-publish'
 }
 
 group 'com.jap.utils'
@@ -18,15 +19,44 @@ apply plugin: 'maven-publish'
 
 publishing {
     publications {
-        maven(MavenPublication) {
+        mavenJava(MavenPublication) {
             groupId = 'com.jap'
             artifactId = 'utils'
-            version = "1.0"
+            version = '1.0'
             from components.java
 
             pom {
                 name = 'Utils'
                 description = 'Utils For Generator'
+                licenses {
+                    license {
+                        name = "The Apache License, Version 2.0"
+                        url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'johnnyaustor'
+                        name = 'Johnny Austor'
+                        email = 'johnny.austor@gmail.com'
+                    }
+                }
+
+                scm {
+                    connection = 'scm:git:git://github.com/johnnyaustor/utils.git'
+                    developerConnection = 'scm:git:ssh://github.com/johnnyaustor/utils.git'
+                    url = 'https://github.com/johnnyaustor/utils/'
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            name = "utils"
+            url = "https://github.com/johnnyaustor/utils"
+            credentials {
+                username = "johnnyaustor"
+                password = "prunasprandon"
             }
         }
     }
