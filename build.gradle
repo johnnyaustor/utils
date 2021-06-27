@@ -55,8 +55,8 @@ publishing {
             name = "utils"
             url = "https://github.com/johnnyaustor/utils"
             credentials {
-                username = "johnnyaustor"
-                password = "prunasprandon"
+                username = System.getenv("USERNAME")
+                password = System.getenv("TOKEN")
             }
         }
     }
